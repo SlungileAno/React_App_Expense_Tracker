@@ -1,32 +1,54 @@
 import React, { useState } from 'react';
 
 const ExpenseForm = ({ addExpense }) => {
-  const [title, setTitle] = useState('');
-  const [amount, setAmount] = useState('');
+  const [expense, setExpense] = useState({
+    title: '',
+    amount: '',
+    date: '',  
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setExpense((prevExpense) => ({
+      ...prevExpense,
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (title && amount) {
-      addExpense({ title, amount });
-      setTitle('');
-      setAmount('');
-    }
+    addExpense(expense);
+    // Reset form after submission
+    setExpense({
+      title: '',
+      amount: '',
+      date: '',  
+    });
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="expense-form">
       <input
         type="text"
-        placeholder="Expense Title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
+        name="title"
+        placeholder="Title"
+        value={expense.title}
+        onChange={handleChange}
         required
       />
       <input
         type="number"
+        name="amount"
         placeholder="Amount"
-        value={amount}
-        onChange={(e) => setAmount(e.target.value)}
+        value={expense.amount}
+        onChange={handleChange}
+        required
+      />
+      <input
+        type="date"
+        name="date"
+        value={expense.date}
+        onChange={handleChange}
         required
       />
       <button type="submit">Add Expense</button>

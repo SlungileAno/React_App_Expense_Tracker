@@ -9,7 +9,7 @@ const Profile = () => {
 
   const [isEditing, setIsEditing] = useState(false);
 
-  // Load profile data from localStorage when the component mounts
+  // Loading profile data from localStorage when the component mounts
   useEffect(() => {
     const savedProfile = JSON.parse(localStorage.getItem('profile'));
     if (savedProfile) {
@@ -28,7 +28,7 @@ const Profile = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsEditing(false);
-    // Save profile data to localStorage
+    // Saving profile data to localStorage
     localStorage.setItem('profile', JSON.stringify(profile));
   };
 
