@@ -1,25 +1,56 @@
-import logo from './logo.svg';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React, { useState } from 'react';
+import './styles/ExpenseTracker.css';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Home from './components/Home';
+import Profile from './components/Profile';
+import ExpenseList from './components/ExpenseList';
+import ExpenseForm from './components/ExpenseForm';
+
+
+const App =() =>{
+const [currentPage, setCurrentPage] = useState( 'home');
+const[expenses, setExpenses] = useState([]);
+
+const addExpense = (expense) => {
+setExpenses ([...expenses, expense]);
+};
+const renderPage = () =>{
+switch (currentPage) {
+case 'home':
+return <Home />;
+case 'profile':
+return <Profile />;
+case 'expenses':
+
+return(
+<div>
+
+< ExpenseForm addExpense={addExpense} />
+< ExpenseList expenses={expenses} />
+</div>
+);
+
+default:
+   return <Home />;
 }
+};
+
+return(
+ <div> 
+  < Header setCurrentPage={setCurrentPage} />
+  {renderPage()}
+  <Footer/>
+   </div>
+ 
+);
+};
+
 
 export default App;
+
+  
+

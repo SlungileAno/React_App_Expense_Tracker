@@ -1,0 +1,138 @@
+header {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  flex-direction:column;
+  
+
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav li:hover{
+  color:#add;
+}
+
+
+nav ul li {
+  margin: 0 15px;
+  cursor: pointer;
+  color: white;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 30%;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+
+
+}
+
+input {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  width: 200px;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+h1{
+  text-align: left;
+}
+
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+  }
+
+  form {
+    width: 100%;
+  }
+
+  input, button {
+    width: 90%;
+  }
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem;
+}
+
+.profile-form input {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.profile-details {
+  margin: 2rem;
+  text-align:center;
+}
+
+.profile-details p {
+  margin: 0.5rem 0;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .profile-form input, button {
+    width: 90%;
+  }
+}
+
+
+
+
+
+
+  
+
+ 
+
+  
+
+
+  
+  
+  
+ 
+  
+ 
+   
